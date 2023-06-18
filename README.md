@@ -1,0 +1,2 @@
+# BBDU
+ django course bbdu
