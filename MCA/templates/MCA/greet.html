@@ -4,5 +4,23 @@
     </head>
     <body>
         <h1>Hello, {{ name }}!</h1>
+
+    <script>
+    var a = document.URL.includes("http://127.0.0.1:8000/Gaurav?uname=&email=&password=&cpassword=&address=");
+            if (a){
+                alert("Something went wrong!");
+                window.location.href = "http://127.0.0.1:8000/";
+            }
+            else{
+                pop("Registration successfull");
+                window.location.href = "http://127.0.0.1:8000/Gaurav";
+            }
+    </script>
+</head>
+
+<body  style="background-color: rgb(91, 59, 59); color:rgb(236, 227, 128)">
+    
+
+
     </body>
 </html>
