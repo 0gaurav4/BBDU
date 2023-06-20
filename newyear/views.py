@@ -8,8 +8,8 @@ def index(request):
         "newyear": now.month == 1 and now.day == 1
     })
     
-def index(request):
-    now = datetime.datetime.now()
-    return render(request, "newyear/index.html", {
-        "newyear": True
-    })
+# def index(request):
+#     now = datetime.datetime.now()
+#     return render(request, "newyear/index.html", {
+#         "newyear": True
+#     })
