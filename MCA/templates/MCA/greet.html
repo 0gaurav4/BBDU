@@ -1,6 +1,29 @@
 <html>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'MCA/styles.css' %}">
+    <script src="{% static 'MCA/greet.js' %}"></script>
+        <!-- JQuery -->
+        <script src="https://code.jquery.com/jquery-3.6.0.slim.min.js"
+        integrity="sha256-u7e5khyithlIdTpu22PHhENmPcRdFiHRjhAuHcs05RI=" crossorigin="anonymous"></script>
     <head>
         <title>Hello</title>
+
+        <style>
+            body{
+                background-color: rgb(91, 59, 59); 
+                color:rgb(236, 227, 128);
+            }
+            @media screen and (max-width: 1410px){
+                html, body {
+                    height: fit-content;
+                    font-size: 25px;
+                    justify-content: space-around;
+                    word-wrap: break-word;
+                    margin-right: 30%;
+                    margin-left: -10%;
+                    line-height: 2;
+                }}
+            </style>         
         <!-- Hello, {{ name }}! -->
     </head>
     <body>
@@ -22,6 +45,98 @@
 <body  style="background-color: rgb(91, 59, 59); color:rgb(236, 227, 128)">
     
 
+    <style>
+        canvas {
+            width: 100%;
+            height: 100%;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: -2;
+        }
+    </style>
+    
+    
+    <!-- Canvas BG -->
+    <canvas id="canvas"></canvas>
+
+    <!-- Tilt JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tilt.js/1.0.3/tilt.jquery.min.js"
+        integrity="sha512-14AZ/DxUrlF26z6v7egDkpJHKyJRn/7ue2BgpWZ/fmqrqVzf4PrQnToy99sHmKwzKev/VZ1tjPxusuTV/n8CcQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" defer></script>
+    
+    <script>
+        $(document).ready(function () {
+            
+            // // Banner
+            // var mousePointer = document.getElementsByClassName('mouse-moveable')
+    
+            // document.addEventListener('mousemove', function (e) {
+            //     var x = e.pageY / window.innerHeight;
+            //     x = x * -20;
+    
+            //     mousePointer[0].style.transform = 'translateY(' + x + '%)'
+            // })
+    
+            // Service Tilt
+            $('.js-tilt').tilt({
+                maxTilt: 20,
+                perspective: 1400,
+                // easing: "cubic-bezier(.03,.98,.52,.99)",
+                speed: 0,
+                glare: true,
+                maxGlare: 0.2,
+            })
+    
+            $('.client-slider').slick({
+                infinite: true,
+                slidesToShow: 6,
+                slidesToScroll: 1,
+                arrows: false,
+                dots: false,
+                responsive: [
+                    {
+                        breakpoint: 800,
+                        settings: {
+                            slidesToShow: 1,
+                            slidesToScroll: 1,
+                            infinite: true,
+                            dots: false,
+                            autoplay: true,
+                            autoplaySpeed: 2000,
+                        }
+                    },
+                ]
+            });
+    
+            $('.review-slider').slick({
+                infinite: true,
+                slidesToShow: 1,
+                slidesToScroll: 1,
+                arrows: false,
+                dost: true
+            })
+    
+            var tl = new TimelineMax({ repeat: -1, repeatDelay: 5 });
+    
+            // FAQ
+            const accItems = document.querySelectorAll(".accordion__item");
+            accItems.forEach((acc) => acc.addEventListener("click", toggleAcc));
+            function toggleAcc() {
+                // remove active class from all items exept the current item (this)
+                // accItems.forEach((item) => item != this ? item.classList.remove("accordion__item--active") : null
+    
+                // toggle active class on current item
+                if (this.classList != "accordion__item--active") {
+                    this.classList.toggle("accordion__item--active");
+                }
+            }
+    
+        })
+    
+    </script>
+    
 
     </body>
 </html>
